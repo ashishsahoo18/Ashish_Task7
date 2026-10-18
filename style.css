@@ -1,0 +1,244 @@
+/* ── CSS VARIABLES ─────────────────────────── */
+:root {
+  --primary-color: #29b6f6;
+  --dark-color: #1a1a2e;
+  --text-color: #222;
+  --light-bg: #f0f4f8;
+  --nav-font: 16px;
+  --logo-font: 22px;
+  --hero-h1: 36px;
+  --hero-p: 15px;
+}
+
+/* ── RESET ─────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* ══════════════════════════════════════════════
+   NAVBAR — Desktop (flex, not display:inline)
+══════════════════════════════════════════════ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-logo {
+  font-size: var(--logo-font);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: var(--nav-font);
+}
+
+.nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.nav-username {
+  background-color: #e0f3ff;
+  color: var(--text-color);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: var(--nav-font);
+}
+
+/* ══════════════════════════════════════════════
+   HERO SECTION — Desktop
+══════════════════════════════════════════════ */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  min-height: calc(100vh - 70px);
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 480px;
+}
+
+.hero-text h1 {
+  font-size: var(--hero-h1);
+  font-weight: 800;
+  color: var(--text-color);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.hero-text h1 span {
+  color: var(--primary-color);
+}
+
+.hero-text p {
+  font-size: var(--hero-p);
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.hero-text button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #0399d4;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ══════════════════════════════════════════════
+   TABLET VIEW — max-width: 768px
+   - Navbar text gets smaller
+   - Hero text and image sizes reduce
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Navbar: smaller font */
+  .navbar {
+    padding: 14px 24px;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-username {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  /* Hero: reduce sizes, keep row layout */
+  .hero {
+    padding: 40px 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  .hero-text button {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE VIEW — max-width: 480px
+   - Hide nav links, show only Logo + Username
+   - Hero switches to flex-direction: column
+   - Image goes below text
+══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Navbar: hide links */
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+  }
+
+  .nav-username {
+    font-size: 13px;
+  }
+
+  /* Hero: column layout — text on top, image below */
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+    min-height: auto;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  .hero-text button {
+    padding: 14px 28px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+}
